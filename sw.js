@@ -20,6 +20,16 @@ self.addEventListener('fetch', event => {
           }
           return Promise.reject()
         })
+      .catch(err => {
+        return fetch(event.request)
+          .then(response => {
+            if (response.ok) {
+              console.log('adding to cache', event.request.url)
+              cache.put(event.request, response.clone())
+            }
+            return response
+          })
+      })
     })
   )
 })
