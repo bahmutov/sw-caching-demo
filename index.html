@@ -5,6 +5,11 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext'
     rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="app.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js', {scope: '/'})
+    }
+  </script>
 </head>
 <body>
   <h1>A page</h1>
