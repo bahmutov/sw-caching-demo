@@ -7,3 +7,7 @@ self.addEventListener('install', (event) => {
     caches.open('demo').then((cache) => cache.addAll(urls))
   )
 })
+
+self.addEventListener('fetch', event => {
+  console.log('page is fetching', event.request.url)
+})
